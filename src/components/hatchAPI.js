@@ -1,5 +1,6 @@
 import axios from "axios";
 import react, { useEffect, useState } from "react";
+import Card from "./Card";
 
 function HatchAPI() {
 
@@ -17,7 +18,9 @@ function HatchAPI() {
         return (
             <ul>
                 {result.map(e => {
-                    return <li key={e.id}>{e.firstName}</li>
+                    return <li key={e.id}>
+                        <Card studentsInfo={e} />
+                    </li>
                 })}
             </ul>
         )
