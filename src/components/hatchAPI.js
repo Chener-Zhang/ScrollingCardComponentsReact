@@ -2,6 +2,9 @@ import axios from "axios";
 import react, { useEffect, useState } from "react";
 import Card from "./Card";
 
+//CSS
+import './HatchAPI.css'
+
 function HatchAPI() {
 
     const [result, setResult] = useState(null);
@@ -26,7 +29,6 @@ function HatchAPI() {
         )
     }
     return (<>
-
         {result ? showResult() : null}
     </>
     )

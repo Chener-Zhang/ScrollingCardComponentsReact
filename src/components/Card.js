@@ -1,10 +1,14 @@
+import React from 'react';
+
+//CSS
+import './Card.css'
 
 function Card(props) {
 
     const studentInfo = props.studentsInfo;
     const total = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
     return (<>
-        <div>
+        <div className='card'>
             <img src={studentInfo.pic} />
             <div>
                 <h2>{studentInfo.firstName}</h2>
