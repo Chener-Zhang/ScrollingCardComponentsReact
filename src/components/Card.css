@@ -53,3 +53,34 @@ li {
     background-color: white;
 
 }
+
+.myToggle {
+
+    margin-left: auto;
+}
+
+button {
+    background-color: #EFEFEF;
+    border          : none;
+    color           : black;
+    width           : 80px;
+    height          : 30px;
+    text-align      : center;
+    text-decoration : none;
+    display         : inline-block;
+    font-size       : 16px;
+    cursor          : pointer;
+    border-radius   : 5px;
+}
+
+.tagInput {
+    height          : 30px;
+    background-color: white;
+    border          : 0;
+    border-bottom   : 1px solid #EFEFEF;
+
+}
+
+.tagInput:focus {
+    outline: none;
+}

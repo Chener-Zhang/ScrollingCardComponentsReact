@@ -9,7 +9,7 @@ function Card(props) {
 
     const [isActive, setIsActive] = useState(false);
     const studentInfo = props.studentsInfo;
-    const total = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
+    const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
 
     useEffect(() => {
 
@@ -18,11 +18,11 @@ function Card(props) {
 
     function toggerHanlder() {
         if (isActive) {
-            return <HiMinus onClick={() => {
+            return <HiMinus className='myToggle' onClick={() => {
                 setIsActive(false);
             }} />
         } else {
-            return <HiPlusSm onClick={() => {
+            return <HiPlusSm className='myToggle' onClick={() => {
                 setIsActive(true);
             }} />
         }
@@ -39,18 +39,20 @@ function Card(props) {
                     <li><h4>{studentInfo.email}</h4></li>
                     <li><h4>{studentInfo.company}</h4></li>
                     <li><h4>{studentInfo.skill}</h4></li>
-                    <li><h4>{total}</h4></li>
+                    <li><h4>{averageScore}</h4></li>
 
-                    {toggerHanlder()}
+                    <button>new tag</button>
+                    <input className='tagInput'/>
+
+
 
                     {isActive && <ul className='ul3-expand'>
                         {studentInfo.grades.map((grade, i) => {
                             return <li key={studentInfo.firstName.concat(i)}> Test: {i + 1} : {grade}</li>
                         })}
                     </ul>}
-
-
                 </ul>
+                {toggerHanlder()}
             </ul>
 
         </div>
