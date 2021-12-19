@@ -13,7 +13,8 @@ function Card(props) {
                 <li><img src={studentInfo.pic} alt={studentInfo.firstName} /></li>
 
                 <ul className='ul2'>
-                    <li><h2>{studentInfo.firstName}</h2></li>
+                    <li><h2>{studentInfo.firstName.concat(" ", studentInfo.lastName)}</h2>
+                    </li>
                     <li><h4>{studentInfo.email}</h4></li>
                     <li><h4>{studentInfo.company}</h4></li>
                     <li><h4>{studentInfo.skill}</h4></li>
