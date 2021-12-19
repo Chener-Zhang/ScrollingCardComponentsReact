@@ -1,10 +1,10 @@
 import './App.css';
+import HatchAPI from './components/HatchAPI';
+
 function App() {
   return (
     <div >
-      <header >
-
-      </header>
+      <HatchAPI/>
     </div>
   );
 }
