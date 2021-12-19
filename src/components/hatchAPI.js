@@ -10,6 +10,7 @@ function HatchAPI() {
     const [result, setResult] = useState(null);
     const [filteredData, setFilteredData] = useState(null);
 
+
     useEffect(() => {
         axios.get('https://api.hatchways.io/assessment/students')
             .then((response) => {
@@ -26,9 +27,10 @@ function HatchAPI() {
             const fullName = student.firstName.concat(student.lastName).toLowerCase();
             return fullName.includes(userTarget);
         });
-
         setResult(newResult);
     }
+
+    
 
 
     function showResult() {
@@ -37,6 +39,10 @@ function HatchAPI() {
             <>
                 <input className="searchBar" placeholder="Search by name" onChange={(e) => {
                     onChangleHandler(e)
+                }} />
+
+                <input className="searchBar" placeholder="Search by tag" onChange={(e) => {
+
                 }} />
                 <ul>
                     {result.map(e => {

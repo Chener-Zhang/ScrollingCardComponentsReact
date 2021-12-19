@@ -6,6 +6,8 @@
     border          : 0;
     border-radius   : 10px;
     padding-left    : 10px;
+    border-bottom   : 1px solid #EFEFEF;
+
 }
 
 .searchBar:focus {

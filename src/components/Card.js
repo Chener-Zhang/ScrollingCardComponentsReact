@@ -8,13 +8,10 @@ import './Card.css'
 function Card(props) {
 
     const [isActive, setIsActive] = useState(false);
+    const [tag, setTag] = useState([]);
+
     const studentInfo = props.studentsInfo;
     const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
-
-    useEffect(() => {
-
-    }, []);
-
 
     function toggerHanlder() {
         if (isActive) {
@@ -42,9 +39,9 @@ function Card(props) {
                     <li><h4>{averageScore}</h4></li>
 
                     <button>new tag</button>
-                    <input className='tagInput'/>
-
-
+                    <input className='tagInput' onChange={(e) => {
+                        setTag(e.target.value)
+                    }} />
 
                     {isActive && <ul className='ul3-expand'>
                         {studentInfo.grades.map((grade, i) => {
