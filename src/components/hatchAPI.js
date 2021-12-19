@@ -19,15 +19,21 @@ function HatchAPI() {
     function showResult() {
 
         return (
-            <ul>
-                {result.map(e => {
-                    return <li key={e.id}>
-                        <Card studentsInfo={e} />
-                    </li>
-                })}
-            </ul>
+            <>
+                <input className="searchBar" placeholder="Search by name" />
+                <ul>
+                    {result.map(e => {
+                        return <li key={e.id}>
+                            <Card studentsInfo={e} />
+                        </li>
+                    })}
+                </ul>
+            </>
+
         )
     }
+
+
     return (<>
         {result ? showResult() : null}
     </>

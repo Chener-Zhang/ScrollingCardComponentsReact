@@ -9,14 +9,18 @@ function Card(props) {
     const total = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
     return (<>
         <div className='card'>
-            <img src={studentInfo.pic} />
-            <div>
-                <h2>{studentInfo.firstName}</h2>
-                <h4>{studentInfo.email}</h4>
-                <h4>{studentInfo.company}</h4>
-                <h4>{studentInfo.skill}</h4>
-                <h4>{total}</h4>
-            </div>
+            <ul className='ul1'>
+                <li><img src={studentInfo.pic} alt={studentInfo.firstName} /></li>
+
+                <ul className='ul2'>
+                    <li><h2>{studentInfo.firstName}</h2></li>
+                    <li><h4>{studentInfo.email}</h4></li>
+                    <li><h4>{studentInfo.company}</h4></li>
+                    <li><h4>{studentInfo.skill}</h4></li>
+                    <li><h4>{total}</h4></li>
+                </ul>
+
+            </ul>
 
         </div>
     </>)
