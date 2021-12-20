@@ -84,3 +84,11 @@ button {
 .tagInput:focus {
     outline: none;
 }
+
+.tag {
+    text-align      : center;
+    width           : 30%;
+    font-weight     : bold;
+    background-color: #EFEFEF;
+    border-radius   : 10px;
+}

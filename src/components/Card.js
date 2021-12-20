@@ -10,19 +10,27 @@ function Card(props) {
     const [isActive, setIsActive] = useState(false);
     const [tag, setTag] = useState('');
     const [tagArray, setTagArray] = useState([])
+    const [firstRender, setFirstRender] = useState(true);
 
     const studentInfo = props.studentsInfo;
     const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
 
 
     useEffect(() => {
-        const retrievedData = localStorage.getItem(studentInfo.id);
-        if (retrievedData !== null) {
-            const retrievedDataArray = JSON.parse(retrievedData);
-            console.log(retrievedDataArray)
-            setTagArray(retrievedDataArray);
+        if (firstRender) {
+            const retrievedData = localStorage.getItem(studentInfo.id);
+            if (retrievedData !== null) {
+                const retrievedDataArray = JSON.parse(retrievedData);
+                console.log(retrievedDataArray)
+                setTagArray(retrievedDataArray);
+            }
+            setFirstRender(false)
         }
-    }, [])
+
+        localStorage.setItem(studentInfo.id, JSON.stringify(tagArray))
+
+
+    }, [tagArray])
 
 
 
@@ -56,12 +64,11 @@ function Card(props) {
                     <button onClick={() => {
                         if (tag !== '') {
                             setTagArray([...tagArray, tag])
-                            localStorage.setItem(studentInfo.id, JSON.stringify(tagArray))
                         }
                     }}>new tag</button>
 
                     {tagArray.length >= 1 && tagArray.map((item, i) => {
-                        return <li key={item.concat(i)}>{item}</li>
+                        return <li className='tag' key={item.concat(i)}>{item}</li>
                     })}
 
 
