@@ -15,6 +15,17 @@ function Card(props) {
     const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
 
 
+    useEffect(() => {
+        const retrievedData = localStorage.getItem(studentInfo.id);
+        if (retrievedData !== null) {
+            const retrievedDataArray = JSON.parse(retrievedData);
+            console.log(retrievedDataArray)
+            setTagArray(retrievedDataArray);
+        }
+    }, [])
+
+
+
     function toggerHanlder() {
         if (isActive) {
             return <HiMinus className='myToggle' onClick={() => {
@@ -43,8 +54,9 @@ function Card(props) {
                     <li><h4>{averageScore}</h4></li>
 
                     <button onClick={() => {
-                        if (tag !== null) {
-                            setTagArray([...tagArray, tag],)
+                        if (tag !== '') {
+                            setTagArray([...tagArray, tag])
+                            localStorage.setItem(studentInfo.id, JSON.stringify(tagArray))
                         }
                     }}>new tag</button>
 
