@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { HiPlusSm, HiMinus } from 'react-icons/hi';
 
 
 //CSS
@@ -40,9 +39,9 @@ function Card(props) {
 
     function toggerHanlder() {
         if (isActive) {
-            return <HiMinus className='myToggle' onClick={() => { setIsActive(false); }} />
+            return <button className='myToggle' onClick={() => { setIsActive(false); }}> - </button>
         } else {
-            return <HiPlusSm className='myToggle' onClick={() => { setIsActive(true); }} />
+            return <button className='myToggle' onClick={() => { setIsActive(true); }} > + </button>
         }
     }
 
@@ -83,7 +82,7 @@ function Card(props) {
                         <ul className='ul3-expand'>{studentInfo.grades.map((grade, i) => { return <li key={studentInfo.firstName.concat(i)}> Test: {i + 1} : {grade}</li> })}</ul>}
 
                 </ul>
-                
+
                 {toggerHanlder()}
             </ul>
 

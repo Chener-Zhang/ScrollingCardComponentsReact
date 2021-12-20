@@ -55,8 +55,10 @@ li {
 }
 
 .myToggle {
-
     margin-left: auto;
+    width      : 20px;
+    height     : 20px;
+    font-weight: bold;
 }
 
 button {
