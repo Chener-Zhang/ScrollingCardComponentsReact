@@ -8,10 +8,16 @@ import './Card.css'
 function Card(props) {
 
     const [isActive, setIsActive] = useState(false);
-    const [tag, setTag] = useState([]);
+    const [tag, setTag] = useState('');
+    const [tagArray, setTagArray] = useState([])
 
     const studentInfo = props.studentsInfo;
     const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
+
+
+    useEffect(() => [
+        console.log('re-render')
+    ], [tagArray, isActive])
 
     function toggerHanlder() {
         if (isActive) {
@@ -24,6 +30,8 @@ function Card(props) {
             }} />
         }
     }
+
+
 
     return (<>
         <div className='card'>
@@ -38,7 +46,17 @@ function Card(props) {
                     <li><h4>{studentInfo.skill}</h4></li>
                     <li><h4>{averageScore}</h4></li>
 
-                    <button>new tag</button>
+                    <button onClick={() => {
+                        if (tag !== null) {
+                            setTagArray([...tagArray, tag],)
+                        }
+                    }}>new tag</button>
+
+                    {tagArray.length >= 1 && tagArray.map((item, i) => {
+                        return <li key={item.concat(i)}>{item}</li>
+                    })}
+
+
                     <input className='tagInput' onChange={(e) => {
                         setTag(e.target.value)
                     }} />
