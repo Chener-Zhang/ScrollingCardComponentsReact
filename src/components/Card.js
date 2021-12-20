@@ -15,10 +15,6 @@ function Card(props) {
     const averageScore = studentInfo.grades.reduce((a, b) => a + parseInt(b), 0) / studentInfo.grades.length;
 
 
-    useEffect(() => [
-        console.log('re-render')
-    ], [tagArray, isActive])
-
     function toggerHanlder() {
         if (isActive) {
             return <HiMinus className='myToggle' onClick={() => {
