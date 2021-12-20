@@ -21,7 +21,6 @@ function Card(props) {
             const retrievedData = localStorage.getItem(studentInfo.id);
             if (retrievedData !== null) {
                 const retrievedDataArray = JSON.parse(retrievedData);
-                console.log(retrievedDataArray)
                 setTagArray(retrievedDataArray);
             }
             setFirstRender(false)
