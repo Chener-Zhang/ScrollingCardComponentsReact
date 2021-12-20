@@ -1,11 +1,3 @@
-* {
-    padding         : 0;
-    margin          : 0;
-    background-color: #EFEFEF;
-    box-sizing      : border-box;
-
-}
-
 .container1 {
     height    : 500px;
     width     : 500px;
