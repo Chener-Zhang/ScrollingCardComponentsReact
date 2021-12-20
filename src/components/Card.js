@@ -55,7 +55,7 @@ function Card(props) {
                     <li><h4>{studentInfo.email}</h4></li>
                     <li><h4>{studentInfo.company}</h4></li>
                     <li><h4>{studentInfo.skill}</h4></li>
-                    <li><h4>{averageScore}</h4></li>
+                    <li><h4>{averageScore}%</h4></li>
 
                     {/* New Tage Button */}
                     <button onClick={() => {
@@ -79,7 +79,7 @@ function Card(props) {
 
                     {/* Check if the toggle is + / -.  */}
                     {isActive &&
-                        <ul className='ul3-expand'>{studentInfo.grades.map((grade, i) => { return <li key={studentInfo.firstName.concat(i)}> Test: {i + 1} : {grade}</li> })}</ul>}
+                        <ul className='ul3-expand'>{studentInfo.grades.map((grade, i) => { return <li key={studentInfo.firstName.concat(i)}> Test: {i + 1}  :  {grade}%</li> })}</ul>}
 
                 </ul>
 
